@@ -1,0 +1,25 @@
+#include <16F877a.h>  // khai báo thu viên cho con pic 16F877A
+#FUSES PUT,HS,NOWDT,NOPROTECT,NOLVP
+#use delay(clock=20M)  // khái báo hàm delay su dung thach anh 20M
+#use i2c(Master,Fast=100000, sda=PIN_C4, scl=PIN_C3,force_sw)  // khia báo su dung chuan giao tiep I2C
+#include "i2c_Flex_LCD.c"   //khai báo thu vien giao tiep I2C Voi LCD
+
+#define led1 PIN_B0
+int bien = 0;
+
+void main()
+{
+   lcd_init(0x4E,16,2);  //khoi dong lcd dia chi 0x4E
+   lcd_backlight_led(ON); //bat led nen lcd
+   set_tris_B(0x00);
+   while(TRUE)
+   {
+      output_toggle(led1);
+      delay_ms(500);
+      lcd_gotoxy(1, 1);
+      printf(lcd_putc, "NGUYEN MINH KHOA");
+      lcd_gotoxy(1, 2);
+      printf(lcd_putc, bien);
+      biem++;
+   }
+}

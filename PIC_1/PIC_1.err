@@ -1,0 +1,4 @@
+>>> Warning 202 "C:\Users\WIN10\Desktop\PIC\ZZZ_demo\PIC_1\i2c_Flex_LCD.c" Line 174(13,17): Variable never used:   data
+      Memory usage:   ROM=10%      RAM=4% - 9%
+      0 Errors,  1 Warnings.
+Build Successful.
